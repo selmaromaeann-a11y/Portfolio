@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mae Ann Selmaro | Bookkeeping for Xero and QuickBooks Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+:root {
+  --paper: #F7EFE7;
+  --card: #FFFAF5;
+  --sand: #EAD8C8;
+  --ink: #33241E;
+  --muted: #6B574D;
+  --rule: #E0CDBD;
+  --accent: #8A4A3F;
+  --accent-ink: #FFFFFF;
+  --mark: #FFE45C;
+  --mark-ink: #33241E;
+  --head: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1E1814; --card: #2A2019; --sand: #3A2D24; --ink: #F3E9E1; --muted: #C2AEA2;
+    --rule: #4A3B32; --accent: #E0A58F; --accent-ink: #1E1814; --mark: #F2D43C; --mark-ink: #1E1814;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #1E1814; --card: #2A2019; --sand: #3A2D24; --ink: #F3E9E1; --muted: #C2AEA2;
+  --rule: #4A3B32; --accent: #E0A58F; --accent-ink: #1E1814; --mark: #F2D43C; --mark-ink: #1E1814;
+}
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 4.5rem); scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+h1, h2, h3, h4 { font-family: var(--head); margin: 0; letter-spacing: -0.02em; line-height: 1.1; }
+h1 { font-size: clamp(2.5rem, 6.2vw, 4.4rem); font-weight: 800; }
+h2 { font-size: clamp(1.8rem, 3.8vw, 2.7rem); font-weight: 700; }
+h4 { font-size: 1.1rem; font-weight: 700; margin: 1.8rem 0 0.7rem; letter-spacing: -0.01em; }
+p { margin: 0 0 1rem; max-width: 62ch; }
+.num { font-variant-numeric: tabular-nums; }
+ul.plain { margin: 0 0 1rem; padding-left: 1.2rem; max-width: 62ch; }
+ul.plain li { margin-bottom: 0.3rem; }
+
+/* header */
+.site { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
+.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 0.8rem; padding-bottom: 0.8rem; }
+.brand { font-family: var(--head); font-weight: 800; font-size: 1.2rem; text-decoration: none; letter-spacing: -0.02em; }
+.site nav { display: flex; align-items: center; gap: 1.5rem; }
+.site nav a { text-decoration: none; font-weight: 500; font-size: 0.97rem; color: var(--muted); padding: 0.2rem 0; border-bottom: 2px solid transparent; }
+.site nav a:hover { color: var(--ink); }
+.site nav a.on { color: var(--ink); border-bottom-color: var(--accent); }
+.btn { display: inline-block; padding: 0.8rem 1.4rem; border-radius: 999px; font-weight: 600; text-decoration: none; border: 2px solid var(--accent); cursor: pointer; font-family: var(--body); font-size: 1rem; line-height: 1.2; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn.sm { padding: 0.5rem 1.05rem; font-size: 0.93rem; }
+.btn:hover { filter: brightness(1.08); }
+
+/* hero */
+.hero { padding: 4.2rem 0 3.4rem; }
+.hero .wrap { display: grid; grid-template-columns: 1.08fr 1fr; gap: 3.6rem; align-items: center; }
+.who { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.6rem; }
+.avatar { width: 60px; height: 60px; border-radius: 50%; background: var(--sand); overflow: hidden; flex: none; border: 2px solid var(--card); box-shadow: 0 0 0 1px var(--rule); }
+.avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; mix-blend-mode: multiply; display: block; }
+.who b { display: block; font-weight: 600; line-height: 1.25; }
+.who span { color: var(--muted); font-size: 0.95rem; }
+.lead { font-size: 1.22rem; color: var(--muted); margin-top: 1.5rem; }
+.tools { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.tag { display: inline-flex; align-items: center; gap: 0.5rem; border: 1.5px solid var(--rule); background: var(--card); border-radius: 999px; padding: 0.28rem 0.9rem; font-weight: 600; font-size: 0.95rem; }
+.dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; display: inline-block; }
+.dot.x { background: #0F8FB8; } .dot.q { background: #2A8A1F; }
+.btns { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 2rem; }
+
+/* the ledger: the one memorable element */
+.ledger { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 1.5rem 1.6rem 1.4rem; box-shadow: 8px 8px 0 var(--sand); }
+.ledger h2 { font-family: var(--body); font-size: 1rem; font-weight: 600; letter-spacing: 0; color: var(--muted); line-height: 1.3; margin: 0 0 0.5rem; }
+.lrow { display: flex; justify-content: space-between; align-items: center; min-height: 2.7rem; padding: 0.3rem 0; gap: 1rem; font-weight: 500; border-bottom: 1px solid var(--rule); }
+.lrow span:last-child { font-weight: 700; }
+.lrow.diff { border-top: 2px solid var(--ink); border-bottom: 5px double var(--ink); min-height: 3.5rem; margin-top: 0.1rem; }
+.lrow.diff .amt { font-family: var(--head); font-size: 1.45rem; padding: 0 0.5rem; border-radius: 3px; background: var(--mark); color: var(--mark-ink); transition: background-color .5s, color .5s; }
+.ledger.done .lrow.diff .amt { background: transparent; color: var(--accent); }
+.lfoot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.1rem; flex-wrap: wrap; }
+.status { font-weight: 600; color: var(--muted); font-size: 0.95rem; margin: 0; max-width: none; }
+.ledger.done .status { color: var(--accent); }
+.lnote { font-size: 0.88rem; color: var(--muted); margin: 0.9rem 0 0; max-width: none; }
+
+/* proof strip */
+.proof { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.proof .wrap { display: grid; grid-template-columns: repeat(3, 1fr); }
+.proof .wrap > div { padding: 1.4rem 1.6rem 1.4rem 0; }
+.proof .wrap > div + div { padding-left: 1.6rem; border-left: 1px solid var(--rule); }
+.proof b { display: block; font-family: var(--head); font-size: 1.15rem; line-height: 1.25; margin-bottom: 0.25rem; }
+.proof span { color: var(--muted); font-size: 0.96rem; }
+
+section.block { padding: 5rem 0; }
+.shead { margin-bottom: 2.4rem; }
+.shead p { color: var(--muted); margin: 0.9rem 0 0; }
+
+/* about */
+.about { display: grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: center; }
+.arch { background: var(--sand); border-radius: 150px 150px 14px 14px; overflow: hidden; aspect-ratio: 4/5; max-width: 300px; }
+.arch img { width: 100%; height: 100%; object-fit: cover; object-position: top; mix-blend-mode: multiply; display: block; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .arch img, :root:not([data-theme="light"]) .avatar img { mix-blend-mode: normal; } }
+:root[data-theme="dark"] .arch img, :root[data-theme="dark"] .avatar img { mix-blend-mode: normal; }
+.about h2 { margin-bottom: 1.2rem; }
+
+/* services */
+.svc { border-top: 2px solid var(--ink); }
+.svc .row { display: grid; grid-template-columns: 1fr 1.4fr; gap: 3rem; padding: 2rem 0; border-bottom: 1px solid var(--rule); }
+.svc h3 { font-size: 1.9rem; font-weight: 700; }
+.svc .row p { color: var(--muted); margin-bottom: 0.8rem; }
+.svc ul { margin: 0; padding-left: 1.2rem; }
+.svc li { margin-bottom: 0.3rem; }
+.svc .row a { color: var(--accent); font-weight: 600; }
+.quote-cta { margin-top: 2.2rem; }
+
+/* work */
+.work { display: grid; grid-template-columns: 290px 1fr; gap: 3rem; align-items: start; }
+.tablist { display: flex; flex-direction: column; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 5rem); border-left: 2px solid var(--rule); }
+.tablist button { text-align: left; background: none; border: 0; border-left: 4px solid transparent; margin-left: -2px; padding: 0.85rem 1rem; cursor: pointer; font-family: var(--body); color: var(--muted); }
+.tablist button .t1 { display: block; font-weight: 600; font-size: 1.02rem; line-height: 1.3; }
+.tablist button .t2 { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.3rem; font-size: 0.88rem; flex-wrap: wrap; }
+.tablist button:hover { color: var(--ink); }
+.tablist button[aria-selected="true"] { color: var(--ink); border-left-color: var(--accent); background: var(--card); }
+i.tag { font-style: normal; font-weight: 600; font-size: 0.8rem; padding: 0.05rem 0.55rem; border-radius: 999px; }
+i.realtag { background: var(--accent); color: var(--accent-ink); }
+i.sampletag { border: 1.5px dashed var(--muted); color: var(--muted); }
+.panels { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 2.2rem 2.4rem 2.4rem; min-width: 0; }
+.js .panel[hidden] { display: none; }
+.badge { display: inline-block; font-weight: 600; font-size: 0.9rem; padding: 0.25rem 0.8rem; border-radius: 6px; margin-bottom: 1rem; }
+.badge.real { background: var(--accent); color: var(--accent-ink); }
+.badge.sample { border: 1.5px dashed var(--muted); color: var(--muted); background: var(--paper); }
+.ptitle { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; }
+.lede { color: var(--muted); margin: 0.8rem 0 1.6rem; }
+.meta { display: flex; flex-wrap: wrap; margin: 0 0 2rem; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.meta div { padding: 0.8rem 1.2rem; border-right: 1px solid var(--rule); flex: 1 1 160px; }
+.meta div:last-child { border-right: 0; }
+.meta dt { font-size: 0.85rem; color: var(--muted); }
+.meta dd { margin: 0.1rem 0 0; font-weight: 600; }
+.cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.6rem; }
+.cs-grid > div { min-width: 0; }
+.cs-grid h4:first-child { margin-top: 0; }
+ol.steps { list-style: none; margin: 0; padding: 0; counter-reset: s; }
+ol.steps li { counter-increment: s; position: relative; padding: 0 0 1.1rem 2.5rem; }
+ol.steps li::before { content: counter(s); position: absolute; left: 0; top: 0.05rem; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 0.88rem; display: grid; place-items: center; }
+ol.steps li::after { content: ""; position: absolute; left: 0.83rem; top: 1.9rem; bottom: 0.1rem; width: 2px; background: var(--rule); }
+ol.steps li:last-child::after { display: none; }
+ol.steps strong { display: block; }
+ol.steps span { color: var(--muted); }
+.scroll { overflow-x: auto; margin-bottom: 0.4rem; }
+table.cmp, table.je { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: 0.96rem; min-width: 380px; }
+th, td { padding: 0.65rem 0.85rem; text-align: left; border-bottom: 1px solid var(--rule); }
+th { font-size: 0.86rem; color: var(--muted); font-weight: 600; background: var(--card); }
+td.r, th.r { text-align: right; }
+tr:last-child td { border-bottom: 0; }
+td.good { font-weight: 700; color: var(--accent); }
+.note { border-left: 4px solid var(--accent); background: var(--paper); padding: 0.85rem 1.1rem; border-radius: 0 6px 6px 0; margin-top: 1.3rem; }
+.note p { margin: 0; }
+.eq { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.8rem; margin-bottom: 1rem; }
+.eq div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 0.7rem 0.9rem; }
+.eq small { display: block; color: var(--muted); font-size: 0.84rem; line-height: 1.3; margin-bottom: 0.2rem; }
+.eq b { font-family: var(--head); font-size: 1.3rem; }
+.eq .final { border: 2px solid var(--accent); }
+
+/* review */
+.review { max-width: 880px; }
+.review blockquote { margin: 0; font-family: var(--head); font-weight: 700; font-size: clamp(1.9rem, 4.6vw, 3.2rem); line-height: 1.12; letter-spacing: -0.02em; }
+.stars { color: var(--accent); font-size: 1.5rem; letter-spacing: 0.18rem; margin-bottom: 1rem; }
+.review figcaption { margin-top: 1.4rem; color: var(--muted); max-width: 60ch; }
+.review figcaption b { color: var(--ink); }
+.reply { margin-top: 1.4rem; padding-top: 1.1rem; border-top: 1px solid var(--rule); max-width: 46ch; font-size: 0.97rem; }
+
+/* process */
+.process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 2px solid var(--ink); }
+.process > div { padding: 1.4rem 1.6rem 0.4rem 0; }
+.process > div + div { padding-left: 1.6rem; border-left: 1px solid var(--rule); }
+.process .n { font-family: var(--head); font-weight: 800; font-size: 2.2rem; color: var(--accent); line-height: 1; }
+.process h3 { font-size: 1.2rem; margin: 0.7rem 0 0.4rem; font-weight: 700; }
+.process p { color: var(--muted); font-size: 0.98rem; }
+
+/* contact */
+.contact { background: var(--sand); }
+.contact h2 { font-size: clamp(2.2rem, 5.4vw, 3.8rem); font-weight: 800; max-width: 16ch; }
+.contact p { margin-top: 1.2rem; }
+.contact .btn.ghost { border-color: var(--ink); }
+.details { margin-top: 1.6rem; color: var(--muted); font-size: 0.97rem; max-width: none; }
+footer { padding: 1.6rem 0 2.4rem; font-size: 0.92rem; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .hero .wrap, .about, .work, .cs-grid, .svc .row { grid-template-columns: 1fr; }
+  .hero { padding: 2.6rem 0 2.4rem; }
+  .hero .wrap { gap: 2.6rem; }
+  .about { gap: 2rem; }
+  .arch { max-width: 240px; }
+  .svc .row { gap: 0.8rem; }
+  section.block { padding: 3.4rem 0; }
+  .proof .wrap { grid-template-columns: 1fr; }
+  .proof .wrap > div, .proof .wrap > div + div { padding: 1rem 0; border-left: 0; }
+  .proof .wrap > div + div { border-top: 1px solid var(--rule); }
+  .process { grid-template-columns: 1fr 1fr; }
+  .process > div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .process > div:nth-child(n+3) { border-top: 1px solid var(--rule); margin-top: 1rem; }
+  .tablist { position: static; flex-direction: row; overflow-x: auto; border-left: 0; border-bottom: 2px solid var(--rule); }
+  .tablist button { border-left: 0; border-bottom: 4px solid transparent; margin: 0 0 -2px; min-width: 190px; }
+  .tablist button[aria-selected="true"] { border-bottom-color: var(--accent); }
+  .panels { padding: 1.5rem 1.2rem; }
+  .site nav a:not(.btn) { display: none; }
+}
+@media (max-width: 520px) { .process { grid-template-columns: 1fr; } .process > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); margin-top: 1rem; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .ledger.done .lrow.diff .amt { transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">Mae Ann Selmaro</a>
+    <nav aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#reviews">Review</a>
+      <a href="#process">Process</a>
+      <a class="btn primary sm" href="#contact">Get a quote</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="who">
+          <div class="avatar"><img src="data:image/jpeg;base64,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" alt="Photo of Mae Ann Selmaro"></div>
+          <div><b>Mae Ann Selmaro</b><span>Bookkeeper and virtual assistant</span></div>
+        </div>
+        <h1>Books that tie out to the bank, to the cent.</h1>
+        <p class="lead">I clean up, set up, and report on small business books in Xero and QuickBooks Online, so owners can trust their numbers.</p>
+        <div class="tools" aria-label="Software">
+          <span class="tag"><span class="dot x"></span>Xero</span>
+          <span class="tag"><span class="dot q"></span>QuickBooks Online</span>
+        </div>
+        <div class="btns">
+          <a class="btn primary" href="#work">See my work</a>
+          <a class="btn ghost" href="#contact">Get a quote</a>
+        </div>
+      </div>
+
+      <div class="ledger num" id="ledger">
+        <h2>Bank reconciliation clean-up, December 2024</h2>
+        <div class="lrow"><span>Bank statement balance</span><span id="l-bank">$14,582.90</span></div>
+        <div class="lrow"><span>Xero balance</span><span id="l-xero">$5,519.55</span></div>
+        <div class="lrow"><span>Opening balance adjustment</span><span id="l-adj">$0.00</span></div>
+        <div class="lrow diff"><span>Difference</span><span class="amt" id="l-diff">$9,063.35</span></div>
+        <div class="lfoot">
+          <p class="status" id="l-status" role="status" aria-live="polite">The books are off by $9,063.35.</p>
+          <button class="btn primary sm" id="l-btn" type="button">Apply the adjustment</button>
+        </div>
+        <p class="lnote">Real figures from my Xero case study, with client details removed.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="proof">
+    <div class="wrap">
+      <div><b>A $9,063.35 gap, traced and fixed</b><span>Real Xero clean-up for a property business, written up below.</span></div>
+      <div><b>Five stars on Fiverr</b><span>"Very responsive and quick turnaround," from a client who came back.</span></div>
+      <div><b>Xero and QuickBooks Online</b><span>Clean-up, set-up, and reporting in either.</span></div>
+    </div>
+  </div>
+
+  <section class="block" id="about">
+    <div class="wrap about">
+      <div class="arch"><img src="data:image/jpeg;base64,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" alt="Portrait of Mae Ann Selmaro"></div>
+      <div>
+        <h2>About me</h2>
+        <p>I'm Mae Ann, a virtual assistant specializing in administrative support and bookkeeping. I help small business owners get their books accurate, organized, and ready for their accountant, so they can stop worrying about whether the numbers are right.</p>
+        <p>I work in Xero and QuickBooks Online, and I like the detail work: tracing a difference back to its source, explaining it in plain language, and leaving the file cleaner than I found it.</p>
+        <p>Outside of bookkeeping, I raise hogs and run a small business of my own. Running it myself means I understand a small business owner's day-to-day pressures, from watching cash flow to keeping track of every expense.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="services" style="padding-top:0">
+    <div class="wrap">
+      <div class="shead"><h2>Services</h2><p>Each service is available in Xero and QuickBooks Online.</p></div>
+      <div class="svc">
+        <div class="row">
+          <div><h3>Clean-up</h3></div>
+          <div>
+            <p>Messy or unreconciled books, fixed so they match your bank and are ready for your accountant or tax filing.</p>
+            <ul><li>Bank and credit card reconciliations</li><li>Duplicate and uncategorized transaction fixes</li><li>Opening balance and prior-period corrections</li><li>Catch-up bookkeeping for missed months</li></ul>
+            <p style="margin:0.9rem 0 0"><a href="#work" data-open="0">Read the Xero case study</a></p>
+          </div>
+        </div>
+        <div class="row">
+          <div><h3>Set-up</h3></div>
+          <div>
+            <p>A new file built correctly from the start, so your books stay accurate as the business grows.</p>
+            <ul><li>Chart of accounts tailored to your business</li><li>Bank feeds and bank rules</li><li>Opening balances and starting data</li><li>Invoice, bill, and payment settings</li></ul>
+          </div>
+        </div>
+        <div class="row">
+          <div><h3>Financial reporting</h3></div>
+          <div>
+            <p>Monthly reports you can actually read, with a short plain-language summary of what changed.</p>
+            <ul><li>Profit and loss, balance sheet, and cash flow</li><li>Month-end review and adjustments</li><li>Receivables and payables summaries</li><li>Reports ready to share with your accountant</li></ul>
+          </div>
+        </div>
+      </div>
+      <p class="quote-cta"><a class="btn primary" href="#contact">Message me for a quote</a></p>
+    </div>
+  </section>
+
+  <section class="block" id="work" style="padding-top:0">
+    <div class="wrap">
+      <div class="shead">
+        <h2>Work</h2>
+        <p>One real client project and four sample projects. Samples use fictional clients and made-up figures to show how I work, and each is labeled.</p>
+      </div>
+      <div class="work">
+        <div class="tablist" role="tablist" aria-label="Projects"><button role="tab" id="tab-0" aria-controls="panel-0" aria-selected="true" tabindex="0"><span class="t1">Opening balance gap</span><span class="t2">Xero<i class="tag realtag">Real client work</i></span></button><button role="tab" id="tab-1" aria-controls="panel-1" aria-selected="false" tabindex="-1"><span class="t1">Duplicate bank lines</span><span class="t2">Xero<i class="tag sampletag">Sample</i></span></button><button role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1"><span class="t1">Loan repayments coded to expense</span><span class="t2">Xero<i class="tag sampletag">Sample</i></span></button><button role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1"><span class="t1">Payment processor double count</span><span class="t2">QuickBooks Online<i class="tag sampletag">Sample</i></span></button><button role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1"><span class="t1">Credit card and parking accounts</span><span class="t2">QuickBooks Online<i class="tag sampletag">Sample</i></span></button></div>
+        <div class="panels"><div role="tabpanel" id="panel-0" aria-labelledby="tab-0" class="panel" tabindex="0">
+<span class="badge real">Real client work, client details withheld</span>
+<h3 class="ptitle">Fixing a $9,063.35 opening balance gap in Xero</h3>
+<p class="lede">A property business had a bank account that showed as fully reconciled in Xero, yet the balance was thousands of dollars off from the real bank statement.</p>
+<dl class="meta"><div><dt>Service</dt><dd>Bookkeeping clean-up</dd></div><div><dt>Software</dt><dd>Xero</dd></div><div><dt>Client</dt><dd>Property business LLC</dd></div><div><dt>Focus</dt><dd>Bank reconciliation, opening balances</dd></div></dl>
+<div class="cs-grid">
+  <div>
+    <h4>The problem</h4>
+    <p>While cleaning up the client's business checking account, I compared the December 2024 bank statement with Xero. The statement closed at <b class="num">$14,582.90</b>. Xero showed a reconciled balance of <b class="num">$5,519.55</b>.</p>
+    <p>That left a historical gap of <b class="num">$9,063.35</b>, and the same gap carried through every 2025 transaction. Every imported transaction was already marked reconciled, and the earlier bank statements that would reveal the source of the difference were not available.</p>
+    <h4>What I did</h4>
+    <ol class="steps"><li><strong>Compared statement to ledger</strong><span>Matched the December 2024 closing balance against the Xero account transactions and confirmed the exact size of the gap.</span></li><li><strong>Checked the Xero history</strong><span>Confirmed the existing transactions were reconciled and that the variance was constant, pointing to a missing opening balance rather than a bad entry.</span></li><li><strong>Asked the client before posting</strong><span>Explained the finding in plain language and asked them to confirm the adjustment and which account it should be allocated to.</span></li><li><strong>Worked around a Xero limit</strong><span>Xero does not let a manual journal post directly to a bank account, so I added a manual transaction for the adjustment and marked it as reconciled.</span></li></ol>
+  </div>
+  <div>
+    <h4>The correction</h4>
+    <p>The adjustment is a prior-period entry that raises the Xero bank balance by exactly the missing amount.</p>
+    <div class="scroll"><table class="je num">
+      <thead><tr><th>Account</th><th class="r">Debit</th><th class="r">Credit</th></tr></thead>
+      <tbody>
+        <tr><td>Bank account (business checking)</td><td class="r">$9,063.35</td><td class="r"></td></tr>
+        <tr><td>Opening Balance Equity / Prior Period Adjustment</td><td class="r"></td><td class="r">$9,063.35</td></tr>
+      </tbody></table></div>
+    <div class="note"><p><b>Why a manual transaction?</b> Xero blocks journals against bank accounts, so the same entry is recorded as a bank transaction against the equity account, then reconciled so the account stays clean.</p></div>
+    <h4>How I verified it</h4>
+    <div class="eq num">
+      <div><small>Xero balance after imported transactions</small><b>-$437.63</b></div>
+      <div><small>Opening balance adjustment</small><b>+$9,063.35</b></div>
+      <div class="final"><small>Corrected Xero balance</small><b>$8,625.72</b></div>
+    </div>
+    <p>The corrected balance matches the bank balance calculated independently from the client's January to October transactions, so the account now ties out.</p>
+  </div>
+</div></div><div role="tabpanel" id="panel-1" aria-labelledby="tab-1" class="panel" tabindex="0">
+<span class="badge sample">Sample project: fictional client, illustrative figures</span>
+<h3 class="ptitle">Duplicate bank lines and unapplied customer payments</h3>
+<p class="lede">A design studio whose cash balance and receivables looked far bigger than reality.</p>
+<dl class="meta"><div><dt>Service</dt><dd>Bookkeeping clean-up</dd></div><div><dt>Software</dt><dd>Xero</dd></div><div><dt>Focus</dt><dd>Bank feed duplicates, accounts receivable</dd></div></dl>
+<div class="cs-grid">
+  <div>
+    <h4>The scenario</h4>
+    <p>A freelance design studio imported CSV statements while the bank feed was also switched on, so the same lines landed twice. Customers had also paid invoices that were never matched, so Xero still showed them as unpaid.</p>
+    <ul class="plain"><li>The Xero bank balance was $6,214.50 higher than the statement</li><li>Accounts receivable looked far larger than it really was</li></ul>
+    <h4>How I would approach it</h4>
+    <ol class="steps"><li><strong>Compare to the statement</strong><span>Tie the Xero balance to the statement and measure the gap.</span></li><li><strong>Find the duplicates</strong><span>Sort by date and amount, then remove the extra imported lines rather than reconciling them.</span></li><li><strong>Apply payments to invoices</strong><span>Match each customer receipt to its invoice so paid invoices leave the receivables list.</span></li><li><strong>Reconcile and review</strong><span>Reconcile to the statement and check the aged receivables report with the owner.</span></li></ol>
+  </div>
+  <div>
+    <h4>Illustrative before and after</h4>
+    <div class="scroll"><table class="cmp num"><thead><tr><th>January to June</th><th class="r">Before</th><th class="r">After</th></tr></thead><tbody><tr><td>Xero bank balance</td><td class="r">$41,206.10</td><td class="r good">$34,991.60</td></tr><tr><td>Bank statement balance</td><td class="r">$34,991.60</td><td class="r good">$34,991.60</td></tr><tr><td>Difference</td><td class="r">$6,214.50</td><td class="r good">$0.00</td></tr><tr><td>Receivables outstanding</td><td class="r">$22,640.00</td><td class="r good">$12,770.00</td></tr><tr><td>Paid invoices showing as unpaid</td><td class="r">$9,870.00</td><td class="r good">$0.00</td></tr></tbody></table></div>
+    
+    <div class="note"><p><b>Why it matters:</b> duplicates inflated the cash balance, and unapplied payments made the studio look like it was owed money that had already arrived.</p></div>
+  </div>
+</div></div><div role="tabpanel" id="panel-2" aria-labelledby="tab-2" class="panel" tabindex="0">
+<span class="badge sample">Sample project: fictional client, illustrative figures</span>
+<h3 class="ptitle">Loan repayments coded entirely to expense</h3>
+<p class="lede">A landscaping company whose profit looked lower than it was, and whose loan never went down.</p>
+<dl class="meta"><div><dt>Service</dt><dd>Bookkeeping clean-up</dd></div><div><dt>Software</dt><dd>Xero</dd></div><div><dt>Focus</dt><dd>Loan accounting, profit accuracy</dd></div></dl>
+<div class="cs-grid">
+  <div>
+    <h4>The scenario</h4>
+    <p>A small landscaping company paid $1,250.00 a month on an equipment loan, and every payment was coded to Loan Expense. Only the interest portion is an expense. The rest reduces the loan.</p>
+    <ul class="plain"><li>Ten payments totaling $12,500.00 sat in expenses</li><li>The loan balance on the balance sheet had never gone down</li></ul>
+    <h4>How I would approach it</h4>
+    <ol class="steps"><li><strong>Get the loan schedule</strong><span>Request the lender statement showing interest and principal for each payment.</span></li><li><strong>Split the total</strong><span>Interest was $2,180.00 and principal was $10,320.00 across the ten payments.</span></li><li><strong>Post a reclassifying journal</strong><span>Debit the loan liability and credit Loan Expense for the principal. This is a normal journal, because it does not touch the bank account.</span></li><li><strong>Set up future payments</strong><span>Create a repeating split so each new payment posts correctly.</span></li></ol>
+  </div>
+  <div>
+    <h4>Illustrative before and after</h4>
+    <div class="scroll"><table class="cmp num"><thead><tr><th>Year to date</th><th class="r">Before</th><th class="r">After</th></tr></thead><tbody><tr><td>Loan expense</td><td class="r">$12,500.00</td><td class="r good">$2,180.00</td></tr><tr><td>Net profit</td><td class="r">$18,450.00</td><td class="r good">$28,770.00</td></tr><tr><td>Loan balance</td><td class="r">$60,000.00</td><td class="r good">$49,680.00</td></tr></tbody></table></div>
+    
+    <div class="note"><p><b>The adjustment:</b> $10,320.00 moves out of expenses and reduces the loan, so profit rises by the same amount and the balance sheet reflects what is still owed.</p></div>
+  </div>
+</div></div><div role="tabpanel" id="panel-3" aria-labelledby="tab-3" class="panel" tabindex="0">
+<span class="badge sample">Sample project: fictional client, illustrative figures</span>
+<h3 class="ptitle">Online shop with an unreviewed bank feed and a payment processor double count</h3>
+<p class="lede">A candle shop that had never reconciled, with sales counted twice.</p>
+<dl class="meta"><div><dt>Service</dt><dd>Bookkeeping clean-up</dd></div><div><dt>Software</dt><dd>QuickBooks Online</dd></div><div><dt>Focus</dt><dd>Bank feed, payment processor, categories</dd></div></dl>
+<div class="cs-grid">
+  <div>
+    <h4>The scenario</h4>
+    <p>The owner had never reconciled. The accountant needed clean books for tax filing and flagged three problems:</p>
+    <ul class="plain"><li>140 bank feed transactions waiting in For Review</li><li>Stripe payouts counted twice, once as sales and again as bank deposits</li><li>$4,236.75 sitting in Uncategorized Expense</li></ul>
+    <h4>How I would approach it</h4>
+    <ol class="steps"><li><strong>Request source documents</strong><span>Bank statements, the Stripe payout and fee report, and receipts for larger purchases.</span></li><li><strong>Fix the Stripe double count</strong><span>Create a Stripe clearing account. Sales post to it, payouts move from it to the bank, and processing fees go to a merchant fees expense, so income is counted once.</span></li><li><strong>Work through For Review</strong><span>Match bank feed lines to existing entries first, then categorize what remains and set bank rules for repeat vendors.</span></li><li><strong>Reclassify Uncategorized Expense</strong><span>Sort each item into the right expense account, and flag personal spending for the owner to confirm as owner draws.</span></li><li><strong>Reconcile month by month</strong><span>Tie each month to its bank statement until the ending balance matches.</span></li></ol>
+  </div>
+  <div>
+    <h4>Illustrative before and after</h4>
+    <div class="scroll"><table class="cmp num"><thead><tr><th>March to September</th><th class="r">Before</th><th class="r">After</th></tr></thead><tbody><tr><td>Income reported</td><td class="r">$37,452.40</td><td class="r good">$19,032.40</td></tr><tr><td>Stripe fees recorded</td><td class="r">$0.00</td><td class="r good">$612.40</td></tr><tr><td>Uncategorized Expense</td><td class="r">$4,236.75</td><td class="r good">$0.00</td></tr><tr><td>Items in For Review</td><td class="r">140</td><td class="r good">0</td></tr><tr><td>Months reconciled</td><td class="r">0</td><td class="r good">7</td></tr></tbody></table></div>
+    <h4>Where the uncategorized money went</h4><div class="scroll"><table class="je num"><thead><tr><th>Account</th><th class="r">Amount</th></tr></thead><tbody><tr><td>Supplies (wax, wicks, jars)</td><td class="r">$2,310.20</td></tr><tr><td>Shipping</td><td class="r">$1,128.55</td></tr><tr><td>Software subscriptions</td><td class="r">$389.00</td></tr><tr><td>Owner draw (personal, pending owner confirmation)</td><td class="r">$409.00</td></tr><tr><td><b>Total</b></td><td class="r"><b>$4,236.75</b></td></tr></tbody></table></div>
+    <div class="note"><p><b>Why income dropped:</b> the Stripe deposits were being counted as sales a second time. Removing the duplicate of $18,420.00 leaves the true sales figure of $19,032.40, which equals payouts plus fees.</p></div>
+  </div>
+</div></div><div role="tabpanel" id="panel-4" aria-labelledby="tab-4" class="panel" tabindex="0">
+<span class="badge sample">Sample project: fictional client, illustrative figures</span>
+<h3 class="ptitle">Credit card clean-up and parking accounts</h3>
+<p class="lede">A consulting firm with an unreconciled card and money parked in Ask My Accountant.</p>
+<dl class="meta"><div><dt>Service</dt><dd>Bookkeeping clean-up</dd></div><div><dt>Software</dt><dd>QuickBooks Online</dd></div><div><dt>Focus</dt><dd>Card reconciliation, chart of accounts</dd></div></dl>
+<div class="cs-grid">
+  <div>
+    <h4>The scenario</h4>
+    <p>A consulting firm had never reconciled its credit card, and transactions it was unsure about had been parked in the Ask My Accountant account. The chart of accounts had also grown messy.</p>
+    <ul class="plain"><li>$3,672.18 across 22 transactions parked in Ask My Accountant</li><li>QuickBooks showed $1,148.25 more owing on the card than the statement</li><li>94 accounts, many of them near duplicates</li></ul>
+    <h4>How I would approach it</h4>
+    <ol class="steps"><li><strong>Find the card difference</strong><span>Four charges were entered twice, totaling $972.50, and one refund of $175.75 was never recorded.</span></li><li><strong>Empty the parking account</strong><span>Review each parked item with receipts and move it to the right expense account.</span></li><li><strong>Tidy the chart of accounts</strong><span>Merge duplicate accounts and inactivate the ones no longer used.</span></li><li><strong>Reconcile the card</strong><span>Reconcile each month to the card statement until the balance matches.</span></li></ol>
+  </div>
+  <div>
+    <h4>Illustrative before and after</h4>
+    <div class="scroll"><table class="cmp num"><thead><tr><th>Nine months</th><th class="r">Before</th><th class="r">After</th></tr></thead><tbody><tr><td>Card balance difference</td><td class="r">$1,148.25</td><td class="r good">$0.00</td></tr><tr><td>Ask My Accountant balance</td><td class="r">$3,672.18</td><td class="r good">$0.00</td></tr><tr><td>Accounts in chart of accounts</td><td class="r">94</td><td class="r good">41</td></tr><tr><td>Months reconciled</td><td class="r">0</td><td class="r good">9</td></tr></tbody></table></div>
+    
+    <div class="note"><p><b>Where the parked money went:</b> meals $842.30, travel $1,563.45, software $701.20, and professional fees $565.23, which total $3,672.18.</p></div>
+  </div>
+</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="reviews" style="padding-top:0">
+    <div class="wrap">
+      <figure class="review" style="margin:0">
+        <div class="stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>Very responsive and quick turnaround.</blockquote>
+        <figcaption><b>Fiverr client, United Kingdom.</b> Bookkeeping project delivered in 2 days. The client came back for an ongoing collaboration.</figcaption>
+        <p class="reply"><b>My reply:</b> I am happy to work with you. Thank you.</p>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" id="process" style="padding-top:0">
+    <div class="wrap">
+      <div class="shead"><h2>How we would work together</h2></div>
+      <div class="process">
+        <div><div class="n">1</div><h3>You tell me what you see</h3><p>Message me what looks wrong and which software you use.</p></div>
+        <div><div class="n">2</div><h3>I review and quote</h3><p>I look at what's involved, tell you what I'd fix first, and send a quote.</p></div>
+        <div><div class="n">3</div><h3>I fix and reconcile</h3><p>I clean up, set up, or catch up the books until they match your bank.</p></div>
+        <div><div class="n">4</div><h3>I explain what changed</h3><p>You get a plain-language summary and reports your accountant can use.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block contact" id="contact">
+    <div class="wrap">
+      <h2>Have books that don't match the bank?</h2>
+      <p>Send me a short description of what you're seeing and the software you use. I'll tell you what I'd check first.</p>
+      <div class="btns">
+        <a class="btn primary" href="https://wa.me/639467060413?text=Hi%20Mae%2C%20I%20found%20your%20bookkeeping%20portfolio%20and%20would%20like%20help%20with%20my%20books.">Message me on WhatsApp</a>
+        <a class="btn ghost" href="mailto:maeannselmaro@gmail.com?subject=Bookkeeping%20inquiry">Email me</a>
+      </div>
+      <p class="details">WhatsApp: +63 946 706 0413<br>Email: maeannselmaro@gmail.com</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Mae Ann Selmaro, Administrative &amp; Bookkeeping Virtual Assistant. Client details are anonymized. Sample projects are labeled and use fictional clients.</div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Tabs */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+  function select(i, focus) {
+    tabs.forEach(function (t, k) {
+      var on = k === i;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      panels[k].hidden = !on;
+    });
+    if (focus) tabs[i].focus();
+  }
+  panels.forEach(function (p, k) { p.hidden = k !== 0; });
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(i, false); });
+    t.addEventListener('keydown', function (e) {
+      var n = tabs.length, k = null;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') k = (i + 1) % n;
+      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') k = (i - 1 + n) % n;
+      if (e.key === 'Home') k = 0;
+      if (e.key === 'End') k = n - 1;
+      if (k !== null) { e.preventDefault(); select(k, true); }
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-open]'), function (a) {
+    a.addEventListener('click', function () { select(parseInt(a.getAttribute('data-open'), 10), false); });
+  });
+
+  /* Ledger */
+  var BANK = 14582.90, XERO = 5519.55, GAP = 9063.35;
+  var ledger = document.getElementById('ledger');
+  var btn = document.getElementById('l-btn');
+  var elX = document.getElementById('l-xero'), elA = document.getElementById('l-adj'),
+      elD = document.getElementById('l-diff'), elS = document.getElementById('l-status');
+  function money(v) { return '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  function paint(adj) {
+    elX.textContent = money(XERO + adj);
+    elA.textContent = money(adj);
+    elD.textContent = money(Math.max(0, GAP - adj));
+  }
+  var applied = false, raf = null;
+  function animate(from, to, done) {
+    if (reduce) { paint(to); done(); return; }
+    var start = null, dur = 1200;
+    function step(ts) {
+      if (start === null) start = ts;
+      var p = Math.min(1, (ts - start) / dur);
+      var e = 1 - Math.pow(1 - p, 3);
+      paint(from + (to - from) * e);
+      if (p < 1) raf = requestAnimationFrame(step); else { paint(to); done(); }
+    }
+    raf = requestAnimationFrame(step);
+  }
+  btn.addEventListener('click', function () {
+    if (raf) cancelAnimationFrame(raf);
+    btn.disabled = true;
+    if (!applied) {
+      animate(0, GAP, function () {
+        applied = true; ledger.classList.add('done');
+        elS.textContent = 'Reconciled. The difference is $0.00.';
+        btn.textContent = 'Reset'; btn.disabled = false;
+      });
+    } else {
+      applied = false; ledger.classList.remove('done');
+      paint(0);
+      elS.textContent = 'The books are off by $9,063.35.';
+      btn.textContent = 'Apply the adjustment'; btn.disabled = false;
+    }
+  });
+
+  /* Nav highlight */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.site nav a[href^="#"]:not(.btn)'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && map[en.target.id]) {
+          links.forEach(function (l) { l.classList.remove('on'); });
+          map[en.target.id].classList.add('on');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    Object.keys(map).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>
